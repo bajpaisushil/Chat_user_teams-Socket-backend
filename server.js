@@ -27,7 +27,7 @@ const server = http.createServer(app);
 // Include the Socket.IO configuration with CORS options
 const io = socketIO(server, {
   cors: {
-    origin: "http://localhost:5173",
+    origin: ["http://localhost:5173", "https://chat-user-teams-socket-backend.onrender.com"],
   }
 });
 
@@ -41,6 +41,9 @@ app.get("/api/chats", (req, res) => {
 app.get("/api/chat/:id", (req, res) => {
   const singlechat = chats.find((c) => c._id === req.params.id);
   res.send(singlechat);
+})
+app.use('/ping', (req, res)=>{
+  res.json('Pong working');
 })
 app.use('/api/message', messageRoutes);
 app.use('/api/chat', chatRoutes);
