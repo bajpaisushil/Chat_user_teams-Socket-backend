@@ -18,7 +18,7 @@ app.use(cors({
   origin: "http://localhost:5173",  // Adjust this to your frontend URL
 }));
 
-dotenv.config({ path: "config/.env" });
+dotenv.config();
 connectDB();
 
 
