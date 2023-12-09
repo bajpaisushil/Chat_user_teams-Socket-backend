@@ -12,11 +12,7 @@ const cors = require('cors');
 const app = express();
 
 // cors for allowing fetching from frontend
-// app.use(cors());
-
-app.use(cors({
-  origin: "http://localhost:5173",  // Adjust this to your frontend URL
-}));
+app.use(cors());
 
 dotenv.config();
 connectDB();
